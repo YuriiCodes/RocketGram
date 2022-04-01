@@ -1,0 +1,22 @@
+.users{
+    padding: .5em;
+}
+span:hover{
+    cursor: pointer;
+}
+.active{
+    font-weight: bold;
+}
+.loadUsers{
+    background: #1e1e1e;
+    padding: .5em;
+    border:1px  solid rgba(235, 235, 235, .1)
+}
+.paginationMenu{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: .5em;
+}
+.paginationMenu span{
+    padding-right: .25em;
+}

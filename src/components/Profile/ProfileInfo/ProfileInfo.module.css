@@ -1,0 +1,12 @@
+.cover{
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cover img {
+    width: 100%;
+    max-height: 100%;
+    display: block;
+}

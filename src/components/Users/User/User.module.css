@@ -1,0 +1,50 @@
+.user{
+    border:1px  solid rgba(235, 235, 235, .1);
+    display: grid;
+    grid-template-columns: 1fr 11fr;
+    padding: .5em;
+}
+.photoAndSubscribe button{
+    background-color: #1e1e1e;
+    font-weight: bold;}
+.photoAndSubscribe{
+}
+.avatar{
+    background-color: #ffeaff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+.userInfo{
+    /*background-color: #fff;*/
+    display: flex;
+    justify-content: space-between;
+}
+.userPersonalInfo{
+    display: flex;
+    flex-direction: column;
+
+}
+.userLocation{
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+
+}
+.name{
+    align-self: end;
+    margin-bottom: 2em;
+    font-weight: bold;
+    font-size: 20px;
+}
+.status{
+}
+.city{
+    text-align: end;
+    width: 100%;
+}
+.country{
+    text-align: end;
+    width: 100%;
+}

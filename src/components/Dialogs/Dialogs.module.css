@@ -1,0 +1,27 @@
+.dialogs{
+    display: grid;
+    height: 100%;
+    grid-template-columns: 3fr 10fr;
+    background-color: #1e1e1e;
+}
+.contacts ul{
+    list-style: none;
+    font-size: 18px;
+    padding: 0;
+}
+
+.chat{
+    height: 100%;
+    color: #ebebeb;
+    background-color: #1e1e1e;
+    /*border-left: 1px  solid rgba(235, 235, 235, .1);*/
+}
+.message{
+    font-size: 20px;
+    margin: .2em;
+}
+.NewMessageForm{
+    grid-column: 2/14;
+    display: flex;
+    margin: 0;
+}

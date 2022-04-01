@@ -1,0 +1,27 @@
+*{
+  margin: 0;
+  padding: 0;
+  color: #dcdcdc;
+  box-sizing: border-box;
+  border: none;
+}
+body{
+  background-color: #323232;
+}
+.app-wrapper{
+  display: grid;
+  width: 80%;
+  margin: 0 auto;
+  grid-template-columns: 2fr 10fr;
+  grid-template-rows: 60px 1fr;
+  /*grid-template-rows: 2fr 10fr;*/
+
+  grid-gap:10px;
+  grid-template-areas:
+  "header header"
+  "nav content";
+}
+.main-content{
+  grid-area: content;
+  background-color: #1e1e1e;
+}

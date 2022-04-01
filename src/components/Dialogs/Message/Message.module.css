@@ -1,0 +1,7 @@
+.singleMessage{
+    border:1px  solid rgba(235, 235, 235, .1);
+    padding: .3em;
+    font-size: 16px;
+    border-radius: .2em;
+    margin-bottom: .3em;
+}

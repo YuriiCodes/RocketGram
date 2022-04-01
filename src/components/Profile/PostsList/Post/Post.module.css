@@ -1,0 +1,15 @@
+.item{
+    color: #8a8a8a;
+}
+.avatar{
+    background-color: #ffeaff;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+.post{
+    display: flex;
+    padding: 0.5em;
+    align-items: center;
+}

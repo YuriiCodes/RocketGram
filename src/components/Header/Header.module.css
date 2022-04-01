@@ -1,0 +1,21 @@
+.header{
+    grid-area: header;
+    background-color: #1e1e1e;
+    display: flex;
+    align-items: center;
+    padding: 1em;
+}
+.header img{
+    width: 20px;
+}
+.logo{
+    /*text-align: center;*/
+    color: #ebebeb;
+}
+.logo a{
+    text-decoration: none;
+    color: #ebebeb;
+}
+.logo a:hover{
+    color: rgba(235, 235, 235, .7);
+}
