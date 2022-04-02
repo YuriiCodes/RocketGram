@@ -1,0 +1,9 @@
+.preloaderContainer{
+    display: flex;
+    justify-content: center;
+
+}
+.preloader{
+    width: 100%;
+    height: 100%;
+}

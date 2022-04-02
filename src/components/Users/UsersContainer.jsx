@@ -5,7 +5,7 @@ import {
     setCurrentPageAC, setLastPaginationElementAC,
     setPaginationArrayAC,
     setTotalUsersCountAC,
-    setUsersAC,
+    setUsersAC, toggleIsFetchingAC,
     unfollowAC
 } from "../../data/usersReducer";
 
@@ -18,6 +18,7 @@ let mapStateToProps = (state) => {
         totalUsersCount: state.usersPage.totalUsersCount,
         currentPaginationArray: state.usersPage.currentPaginationArray,
         lastPaginationElement: state.usersPage.lastPaginationElement,
+        isFetching: state.usersPage.isFetching,
     }
 }
 
@@ -43,6 +44,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         setLastPaginationElement: (lastPaginationElement) => {
             dispatch(setLastPaginationElementAC(lastPaginationElement))
+        },
+        toggleIsFetchig: (isFetching) => {
+            dispatch(toggleIsFetchingAC(isFetching))
         }
     }
 }

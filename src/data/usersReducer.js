@@ -5,13 +5,15 @@ const CHANGE_PAGE = "CHANGE_PAGE";
 const SET_TOTAL_USERS_COUNT = "SET_TOTAL_USERS_COUNT";
 const SET_PAGINATION_ARRAY = "SET_PAGINATION_ARRAY";
 const SET_LAST_PAGINATION_ELEMENT = "SET_LAST_PAGINATION_ELEMENT";
+const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
 let initialState = {
     users: [],
     currentPage: 1,
     usersPerPage: 5,
     totalUsersCount: 16,
     currentPaginationArray:[1, 2, 3],
-    lastPaginationElement: 0
+    lastPaginationElement: 0,
+    isFetching: false
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -48,6 +50,8 @@ const usersReducer = (state = initialState, action) => {
             return {...state, currentPaginationArray: [...action.currentPaginationArray]}
         case SET_LAST_PAGINATION_ELEMENT:
             return {...state, lastPaginationElement: action.lastPaginationElement}
+        case TOGGLE_IS_FETCHING:
+            return {...state, isFetching: action.isFetching}
         default:
             return state;
     }
@@ -60,4 +64,5 @@ export const setUsersAC = (users) => ({type: SET_USERS, users});
 export const setCurrentPageAC = (page) => ({type: CHANGE_PAGE, currentPage: page});
 export const setTotalUsersCountAC = (totalUsersCount) => ({type: SET_TOTAL_USERS_COUNT, totalUsersCount});
 export const setPaginationArrayAC = (paginationArray) => ({type: SET_PAGINATION_ARRAY, currentPaginationArray: paginationArray});
+export const toggleIsFetchingAC = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
 export default usersReducer;
