@@ -1,4 +1,4 @@
-import preloaderGif from  "./../../../assets/images/preloader32x32.gifG";
+import preloaderGif from  "./../../../assets/images/preloader32x32.gif";
 import classes from "./Preloader.module.css"
 function Preloader(props){
     return (

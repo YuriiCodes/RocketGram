@@ -11,7 +11,7 @@ import {
 
 
 let mapStateToProps = (state) => {
-    return{
+    return {
         users: state.usersPage.users,
         currentPage: state.usersPage.currentPage,
         usersPerPage: state.usersPage.usersPerPage,
@@ -50,4 +50,15 @@ let mapDispatchToProps = (dispatch) => {
         }
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(UsersAPIComponent);
+
+// export default connect(mapStateToProps, mapDispatchToProps)(UsersAPIComponent);
+export default connect(mapStateToProps, {
+    follow: followAC,
+    unfollow: unfollowAC,
+    setUsers: setUsersAC,
+    changePage: setCurrentPageAC,
+    setTotalUsersCount: setTotalUsersCountAC,
+    setCurrentPaginationArray: setPaginationArrayAC,
+    setLastPaginationElement: setLastPaginationElementAC,
+    toggleIsFetchig: toggleIsFetchingAC,
+})(UsersAPIComponent);
