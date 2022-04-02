@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import Users from "./Users";
+import UsersAPIComponent from "./UsersAPIComponent/UsersAPIComponent";
 import {
     followAC,
     setCurrentPageAC, setLastPaginationElementAC,
@@ -46,4 +46,4 @@ let mapDispatchToProps = (dispatch) => {
         }
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Users);
+export default connect(mapStateToProps, mapDispatchToProps)(UsersAPIComponent);
