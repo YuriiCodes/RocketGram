@@ -57,12 +57,12 @@ const usersReducer = (state = initialState, action) => {
     }
 }
 
-export const setLastPaginationElementAC = (lastPaginationElement) => ({type: SET_LAST_PAGINATION_ELEMENT, lastPaginationElement})
-export const followAC = (userId) => ({type: FOLLOW, userId});
-export const unfollowAC = (userId) => ({type: UNFOLLOW, userId});
-export const setUsersAC = (users) => ({type: SET_USERS, users});
-export const setCurrentPageAC = (page) => ({type: CHANGE_PAGE, currentPage: page});
-export const setTotalUsersCountAC = (totalUsersCount) => ({type: SET_TOTAL_USERS_COUNT, totalUsersCount});
-export const setPaginationArrayAC = (paginationArray) => ({type: SET_PAGINATION_ARRAY, currentPaginationArray: paginationArray});
-export const toggleIsFetchingAC = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
+export const setLastPaginationElement = (lastPaginationElement) => ({type: SET_LAST_PAGINATION_ELEMENT, lastPaginationElement})
+export const follow = (userId) => ({type: FOLLOW, userId});
+export const unfollow = (userId) => ({type: UNFOLLOW, userId});
+export const setUsers = (users) => ({type: SET_USERS, users});
+export const setCurrentPage = (page) => ({type: CHANGE_PAGE, currentPage: page});
+export const setTotalUsersCount = (totalUsersCount) => ({type: SET_TOTAL_USERS_COUNT, totalUsersCount});
+export const setPaginationArray = (paginationArray) => ({type: SET_PAGINATION_ARRAY, currentPaginationArray: paginationArray});
+export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
 export default usersReducer;
