@@ -16,6 +16,7 @@ let initialState = {
     isFetching: false
 };
 
+
 const usersReducer = (state = initialState, action) => {
     switch (action.type) {
         case FOLLOW:
@@ -44,8 +45,6 @@ const usersReducer = (state = initialState, action) => {
             return {...state, currentPage: action.currentPage}
         case SET_TOTAL_USERS_COUNT:
             return {...state, totalUsersCount: action.totalUsersCount}
-        case SET_TOTAL_USERS_COUNT:
-            return {...state, totalUsersCount: action.totalUsersCount}
         case SET_PAGINATION_ARRAY:
             return {...state, currentPaginationArray: [...action.currentPaginationArray]}
         case SET_LAST_PAGINATION_ELEMENT:
@@ -57,6 +56,7 @@ const usersReducer = (state = initialState, action) => {
     }
 }
 
+// Action Creators
 export const setLastPaginationElement = (lastPaginationElement) => ({type: SET_LAST_PAGINATION_ELEMENT, lastPaginationElement})
 export const follow = (userId) => ({type: FOLLOW, userId});
 export const unfollow = (userId) => ({type: UNFOLLOW, userId});
