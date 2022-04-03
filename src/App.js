@@ -8,6 +8,7 @@ import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
+import ProfileContainer from "./components/Profile/ProfileContainer";
 
 
 function App(props) {
@@ -20,8 +21,16 @@ function App(props) {
                     <Routes>
                         <Route exact path="/"
                                element={<Profile />}/>
+
+                        {/*<Route path="profile"*/}
+                        {/*       element={<Profile  />}/>*/}
+
                         <Route path="profile"
-                               element={<Profile  />}/>
+                               element={<ProfileContainer />}>
+                            <Route path=":profileId"
+                                   element={<ProfileContainer />}/>
+                        </Route>
+
                         <Route path="messages"
                                element={<DialogsContainer />}>
                             <Route path=":messageId"

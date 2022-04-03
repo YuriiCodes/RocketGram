@@ -6,8 +6,7 @@ import PostsListContainer from "./PostsList/PostsListContainer";
 function Profile(props) {
     return (
         <div className={classes.content}>
-            <ProfileInfo/>
-            {/*<PostsList posts={props.state.posts}  dispatch={props.dispatch} newPostText={props.state.newPostText} />*/}
+            <ProfileInfo profile={props.profile}/>
             <PostsListContainer store={props.store}/>
         </div>
     )

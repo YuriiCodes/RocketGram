@@ -1,5 +1,6 @@
 import classes from "./User.module.css";
 import React from "react";
+import {NavLink} from "react-router-dom";
 function User(props) {
     return (
         <div className={classes.user}>
@@ -16,7 +17,9 @@ function User(props) {
             <div className={classes.userInfo}>
                 <div className={classes.userPersonalInfo}>
                     <div>
-                        <span className={classes.name}>{props.fullName}</span>
+                        <NavLink to={'/profile/' + props.id}>
+                            <span className={classes.name}>{props.fullName}</span>
+                        </NavLink>
                     </div>
                     <div>
                         <span className={classes.status}>{props.status}</span>
