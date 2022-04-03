@@ -14,7 +14,7 @@ function ProfileInfo(props) {
             </div>
             <div className={classes.profile}>
                 {/*<span>{props.profile.fullName}</span>*/}
-                <h1>Profile of: g{props.profile.fullName}</h1>
+                <h1>Profile of: {props.profile.fullName}</h1>
                 <h2>{props.profile.aboutMe}</h2>
                 {props.profile.lookingForAJob ? <h3>Looking for a job</h3> : <h3>Not looking for a job</h3>}
                 <h4>{props.profile.lookingForAJobDescription}</h4>

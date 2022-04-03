@@ -3,6 +3,7 @@
     background-color: #1e1e1e;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 1em;
 }
 .header img{
@@ -18,4 +19,11 @@
 }
 .logo a:hover{
     color: rgba(235, 235, 235, .7);
+}
+.loginInfo{
+
+
+}
+.personal{
+
 }
