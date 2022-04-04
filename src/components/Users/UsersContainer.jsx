@@ -51,7 +51,6 @@ let mapStateToProps = (state) => {
 //     }
 // }
 
-// export default connect(mapStateToProps, mapDispatchToProps)(UsersAPIComponent);
 export default connect(mapStateToProps, {
     // Object with action creators
     follow,

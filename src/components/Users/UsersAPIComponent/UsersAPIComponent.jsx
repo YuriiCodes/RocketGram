@@ -11,7 +11,7 @@ class UsersAPIComponent extends React.Component {
     }
 
     getUsers = (pageNumber) => {
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.usersPerPage}`).then(res => {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.usersPerPage}`, {withCredentials: true}).then(res => {
             this.props.toggleIsFetchig(false);
             this.props.setUsers(res.data.items);
             this.props.setTotalUsersCount(res.data.totalCount);
