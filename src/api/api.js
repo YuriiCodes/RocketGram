@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-// Agxios instance for api calls
+// Axios instance for api calls
 const instance = axios.create({
     baseURL: "https://social-network.samuraijs.com/api/1.0/",
     withCredentials: true,
