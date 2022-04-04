@@ -5,7 +5,7 @@ import {
     setCurrentPage, setLastPaginationElement,
     setPaginationArray,
     setTotalUsersCount,
-    setUsers, toggleIsFetching,
+    setUsers, toggleIsFetching, toggleIsFollowingInProgress,
     unfollow
 } from "../../data/usersReducer";
 
@@ -19,38 +19,9 @@ let mapStateToProps = (state) => {
         currentPaginationArray: state.usersPage.currentPaginationArray,
         lastPaginationElement: state.usersPage.lastPaginationElement,
         isFetching: state.usersPage.isFetching,
+        followingInProgress: state.usersPage.followingInProgress
     }
 }
-//
-// let mapDispatchToProps = (dispatch) => {
-//     return {
-//         follow: (userId) => {
-//             dispatch(followAC(userId))
-//         },
-//         unfollow: (userId) => {
-//             dispatch(unfollowAC(userId))
-//         },
-//         setUsers: (users) => {
-//             dispatch(setUsersAC(users))
-//         },
-//         changePage: (pageNumber) => {
-//             dispatch(setCurrentPageAC(pageNumber))
-//         },
-//         setTotalUsersCount: (totalUsersCount) => {
-//             dispatch(setTotalUsersCountAC(totalUsersCount))
-//         },
-//         setCurrentPaginationArray: (currentPaginationArray) => {
-//             dispatch(setPaginationArrayAC(currentPaginationArray))
-//         },
-//         setLastPaginationElement: (lastPaginationElement) => {
-//             dispatch(setLastPaginationElementAC(lastPaginationElement))
-//         },
-//         toggleIsFetchig: (isFetching) => {
-//             dispatch(toggleIsFetchingAC(isFetching))
-//         }
-//     }
-// }
-
 export default connect(mapStateToProps, {
     // Object with action creators
     follow,
@@ -61,4 +32,5 @@ export default connect(mapStateToProps, {
     setCurrentPaginationArray: setPaginationArray,
     setLastPaginationElement,
     toggleIsFetchig: toggleIsFetching,
+    toggleIsFollowingInProgress
 })(UsersAPIComponent);

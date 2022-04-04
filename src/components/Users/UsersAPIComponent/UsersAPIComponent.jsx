@@ -3,6 +3,7 @@ import axios from "axios";
 import Users from "./UsersPresentationalComponent/Users";
 import Preloader from "../../Common/Preloader/Preloader";
 import usersAPI from "../../../api/api";
+import {toggleIsFollowingInProgress} from "../../../data/usersReducer";
 
 
 class UsersAPIComponent extends React.Component {
@@ -79,6 +80,8 @@ class UsersAPIComponent extends React.Component {
                        unfollow={this.props.unfollow}
                        totalUsersCount={this.props.totalUsersCount}
                        usersPerPage={this.props.usersPerPage}
+                       toggleIsFollowingInProgress={this.props.toggleIsFollowingInProgress}
+                       followingInProgress={this.props.followingInProgress}
                 />
 
             </>)

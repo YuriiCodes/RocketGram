@@ -3,7 +3,6 @@ import User from "./User/User";
 import React from "react";
 
 function Users(props) {
-    let pages = []
     let amountOfPages = Math.ceil(props.totalUsersCount / props.usersPerPage);
     return (
         <div className={classes.users}>
@@ -23,8 +22,11 @@ function Users(props) {
 
             {
                 props.users.map(u => <User id={u.id} photoUrl={u.photoUrl} followed={u.followed}
-                                                fullName={u.name} status={u.status} follow={props.follow}
-                                                unfollow={props.unfollow} city="Kyiv" country="Ukraine"/>)
+                                           fullName={u.name} status={u.status} follow={props.follow}
+                                           unfollow={props.unfollow} city="Kyiv" country="Ukraine"
+                                           toggleIsFollowingInProgress={props.toggleIsFollowingInProgress}
+                                           followingInProgress={props.followingInProgress}
+                />)
             }
         </div>
     );

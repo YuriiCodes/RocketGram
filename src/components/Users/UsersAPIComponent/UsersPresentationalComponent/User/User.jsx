@@ -11,20 +11,30 @@ function User(props) {
                 <div className={classes.avatar}></div>
                 <span className={classes.photoUrl}>{props.photoUrl}</span>
 
-                {props.followed ? <button onClick={() => {
-                    usersAPI.unfollow(props.id).then(data => {
-                        if (data.resultCode === 0) {
-                            props.unfollow(props.id);
-                        }
-                    });
-                    }}>Unfollow</button>:
-                    <button onClick={() => {
-                        usersAPI.follow(props.id).then(data => {
-                            if (data.resultCode === 0) {
-                                props.follow(props.id)
-                            }
-                        })
-                    }}>Follow</button>}
+                {props.followed ? <button disabled={props.followingInProgress.some(id => id === props.id)}
+                                          onClick={() => {
+
+                                              props.toggleIsFollowingInProgress(true, props.id);
+
+                                              usersAPI.unfollow(props.id).then(data => {
+                                                  if (data.resultCode === 0) {
+                                                      props.unfollow(props.id);
+                                                  }
+                                                  props.toggleIsFollowingInProgress(false, props.id);
+
+                                              });
+                                          }}>Unfollow</button> :
+                    <button disabled={props.followingInProgress.some(id => id === props.id)}
+                            onClick={() => {
+                                props.toggleIsFollowingInProgress(true, props.id);
+                                usersAPI.follow(props.id).then(data => {
+                                    if (data.resultCode === 0) {
+                                        props.follow(props.id)
+                                    }
+                                    props.toggleIsFollowingInProgress(false, props.id);
+
+                                })
+                            }}>Follow</button>}
 
 
             </div>

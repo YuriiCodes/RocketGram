@@ -48,3 +48,6 @@
     text-align: end;
     width: 100%;
 }
+button:disabled{
+    opacity: 50%;
+}
