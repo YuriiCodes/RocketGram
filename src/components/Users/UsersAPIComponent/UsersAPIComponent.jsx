@@ -2,6 +2,7 @@ import React, {useEffect} from "react";
 import axios from "axios";
 import Users from "./UsersPresentationalComponent/Users";
 import Preloader from "../../Common/Preloader/Preloader";
+import usersAPI from "../../../api/api";
 
 
 class UsersAPIComponent extends React.Component {
@@ -11,13 +12,15 @@ class UsersAPIComponent extends React.Component {
     }
 
     getUsers = (pageNumber) => {
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.usersPerPage}`, {withCredentials: true}).then(res => {
+        // axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.usersPerPage}`, {withCredentials: true}).then(res => {
+        // axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.usersPerPage}`, {withCredentials: true}).then(res => {
+            usersAPI.getUsers(pageNumber, this.props.usersPerPage).then(data => {
             this.props.toggleIsFetchig(false);
-            this.props.setUsers(res.data.items);
-            this.props.setTotalUsersCount(res.data.totalCount);
+            this.props.setUsers(data.items);
+            this.props.setTotalUsersCount(data.totalCount);
             let amountOfPages = Math.ceil(this.props.totalUsersCount / this.props.usersPerPage);
             this.props.setLastPaginationElement(amountOfPages - 1);
-            console.log(res);
+            console.log(data);
         })
     }
     setDefaultUsers = () => {
