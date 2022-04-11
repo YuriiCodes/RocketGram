@@ -31,6 +31,10 @@ function withRouter(Component) {
 class ProfileContainer extends React.Component {
     componentDidMount() {
         let profileId = this.props.router.params.profileId;
+
+        if(profileId === undefined){
+            profileId = 23171;
+        }
         this.props.getUserProfile(profileId);
     }
 

@@ -20,7 +20,7 @@ function App(props) {
                 <div className="main-content">
                     <Routes>
                         <Route exact path="/"
-                               element={<Profile />}/>
+                               element={<ProfileContainer />}/>
 
                         {/*<Route path="profile"*/}
                         {/*       element={<Profile  />}/>*/}
