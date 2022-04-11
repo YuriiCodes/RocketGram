@@ -1,11 +1,9 @@
-import classes from "./Profile.module.css";
-import ProfileInfo from "./ProfileInfo/ProfileInfo";
-import PostsListContainer from "./PostsList/PostsListContainer";
+
 import Profile from "./Profile";
 import React from "react";
 import axios from "axios";
 import {connect} from "react-redux";
-import {setUserProfile} from "../../data/profileReducer";
+import {getUserProfileThunkCreator, setUserProfile} from "../../data/profileReducer";
 import {
     useLocation,
     useNavigate,
@@ -33,10 +31,7 @@ function withRouter(Component) {
 class ProfileContainer extends React.Component {
     componentDidMount() {
         let profileId = this.props.router.params.profileId;
-        usersAPI.getProfileInfo(profileId).then(res => {
-                this.props.setUserProfile(res.data);
-            }
-        )
+        this.props.getUserProfile(profileId);
     }
 
     render() {
@@ -50,4 +45,4 @@ class ProfileContainer extends React.Component {
 let mapStateToProps = (state) => ({
     profile: state.profilePage.profile,
 });
-export default connect(mapStateToProps, {setUserProfile})(withRouter(ProfileContainer));
+export default connect(mapStateToProps, {setUserProfile, getUserProfile: getUserProfileThunkCreator})(withRouter(ProfileContainer));
