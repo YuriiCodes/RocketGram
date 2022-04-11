@@ -20,7 +20,10 @@ const usersAPI = {
     },
    follow(id) {
       return instance.post(`follow/${id}`).then(res => res.data)
-   }
+   },
+    auth(){
+        return instance.get(`auth/me`);
+    }
 }
 
 
