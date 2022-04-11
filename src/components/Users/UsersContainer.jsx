@@ -19,7 +19,9 @@ let mapStateToProps = (state) => {
         currentPaginationArray: state.usersPage.currentPaginationArray,
         lastPaginationElement: state.usersPage.lastPaginationElement,
         isFetching: state.usersPage.isFetching,
-        followingInProgress: state.usersPage.followingInProgress
+        followingInProgress: state.usersPage.followingInProgress,
+        isAuth: state.auth.isAuth
+
     }
 }
 export default connect(mapStateToProps, {

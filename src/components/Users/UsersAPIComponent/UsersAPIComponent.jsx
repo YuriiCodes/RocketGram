@@ -9,6 +9,7 @@ import {
     toggleIsFollowingInProgress,
     unfollowThunkCreator
 } from "../../../data/usersReducer";
+import {Navigate} from "react-router-dom";
 
 
 class UsersAPIComponent extends React.Component {
@@ -74,6 +75,9 @@ class UsersAPIComponent extends React.Component {
 
 
     render() {
+        if(!this.props.isAuth) {
+            return <Navigate to={'/login'}/>
+        }
         return (
             <>
                 {this.props.isFetching ? <Preloader /> : null}

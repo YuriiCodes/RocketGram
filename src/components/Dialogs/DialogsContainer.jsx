@@ -1,32 +1,7 @@
 import React from "react";
 import Dialogs from "./Dialogs";
 import {messageChangeActionCreator, sendMessageActionCreator} from "../../data/dialogsReducer";
-// import StoreContext from "../../StoreContext";
 import {connect} from "react-redux";
-
-//
-// function DialogsContainer(props) {
-//     return (<StoreContext.Consumer>
-//             {(store) => {
-//                 let state = store.getState();
-//                 let messages = state.dialogsPage.messages;
-//                 let contacts = state.dialogsPage.contacts;
-//                 let newMessageText = state.dialogsPage.newMessageText;
-//
-//
-//                 let sendMessage = () => {
-//                     store.dispatch(sendMessageActionCreator());
-//                 };
-//                 let updateMessage = (newMessage) => {
-//                     store.dispatch(messageChangeActionCreator(newMessage));
-//                 }
-//                 return (<Dialogs store={store} messages={messages} contacts={contacts} newMessageText={newMessageText}
-//                                  sendMessage={sendMessage} updateMessage={updateMessage}
-//                     />)
-//             }}
-//         </StoreContext.Consumer>);
-//
-// };
 
 // mapStateToProps and mapDispatchToProps are functions that return objects that are later passed via props.
 
@@ -36,6 +11,7 @@ let mapStateToProps = (state) => ({
     contacts: state.dialogsPage.contacts,
     messages: state.dialogsPage.messages,
     newMessageText:  state.dialogsPage.newMessageText,
+    isAuth: state.auth.isAuth
 })
 
 // mapDispatchToProps returns callbacks

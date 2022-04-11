@@ -4,6 +4,7 @@ import Dialog from "./Dialog/Dialog";
 import React from "react";
 import NewMessageForm from "./NewMessageForm/NewMessageForm";
 import {messageChangeActionCreator, sendMessageActionCreator} from "../../data/dialogsReducer";
+import {Navigate} from "react-router-dom";
 
 function Dialogs(props) {
 
@@ -12,6 +13,9 @@ function Dialogs(props) {
     let messagesElements = props.messages.map(message => <Message key={message.chatId} message={message.message}/>);
     let dialogsElements = props.contacts.map(contact => <Dialog key={contact.id} id={contact.id} name={contact.name}/>);
 
+    if(!props.isAuth) {
+        return <Navigate to={'/login'}/>
+    }
     return (<div className={classes.dialogs}>
             <div className={classes.contacts}>
                 <ul>
