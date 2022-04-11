@@ -23,6 +23,9 @@ const usersAPI = {
    },
     auth(){
         return instance.get(`auth/me`);
+    },
+    getProfileInfo(profileId) {
+        return instance.get(`profile/${profileId}`)
     }
 }
 
