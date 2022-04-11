@@ -3,18 +3,22 @@ import axios from "axios";
 import Users from "./UsersPresentationalComponent/Users";
 import Preloader from "../../Common/Preloader/Preloader";
 import usersAPI from "../../../api/api";
-import {toggleIsFollowingInProgress} from "../../../data/usersReducer";
+import {
+    followThunkCreator,
+    getUsersThunkCreator,
+    toggleIsFollowingInProgress,
+    unfollowThunkCreator
+} from "../../../data/usersReducer";
 
 
 class UsersAPIComponent extends React.Component {
     componentDidMount() {
-        this.getUsers(this.props.currentPage);
-        this.props.toggleIsFetchig(true);
+        this.props.getUsers(this.props.currentPage, this.props.usersPerPage, this.props.totalUsersCount);
+        // this.getUsers(this.props.currentPage);
+        // this.props.toggleIsFetchig(true);
     }
 
     getUsers = (pageNumber) => {
-        // axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.usersPerPage}`, {withCredentials: true}).then(res => {
-        // axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.usersPerPage}`, {withCredentials: true}).then(res => {
             usersAPI.getUsers(pageNumber, this.props.usersPerPage).then(data => {
             this.props.toggleIsFetchig(false);
             this.props.setUsers(data.items);
@@ -51,11 +55,14 @@ class UsersAPIComponent extends React.Component {
         if (pageNumber > 0 && pageNumber < amountOfPages) {
             if (pageNumber + 1 === amountOfPages) {
                 this.props.setCurrentPaginationArray([pageNumber - 1, pageNumber]);
-                this.getUsers(pageNumber);
+                // this.getUsers(pageNumber);
+                this.props.getUsers(pageNumber, this.props.usersPerPage, this.props.totalUsersCount);
+
                 return;
             }
             this.props.setCurrentPaginationArray([pageNumber - 1, pageNumber, pageNumber + 1]);
-            this.getUsers(pageNumber);
+            this.props.getUsers(pageNumber, this.props.usersPerPage, this.props.totalUsersCount);
+            // this.getUsers(pageNumber);
         }
     }
     onPageChange = (pageNumber, amountOfPages) => {
@@ -82,6 +89,8 @@ class UsersAPIComponent extends React.Component {
                        usersPerPage={this.props.usersPerPage}
                        toggleIsFollowingInProgress={this.props.toggleIsFollowingInProgress}
                        followingInProgress={this.props.followingInProgress}
+                       followThunkCreator={this.props.followThunkCreator}
+                       unfollowThunkCreator={this.props.unfollowThunkCreator}
                 />
 
             </>)

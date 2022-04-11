@@ -3,6 +3,7 @@ import React from "react";
 import {NavLink} from "react-router-dom";
 import axios from "axios";
 import usersAPI from "../../../../../api/api";
+import {unfollowThunkCreator} from "../../../../../data/usersReducer";
 
 function User(props) {
     return (
@@ -13,27 +14,28 @@ function User(props) {
 
                 {props.followed ? <button disabled={props.followingInProgress.some(id => id === props.id)}
                                           onClick={() => {
-
-                                              props.toggleIsFollowingInProgress(true, props.id);
-
-                                              usersAPI.unfollow(props.id).then(data => {
-                                                  if (data.resultCode === 0) {
-                                                      props.unfollow(props.id);
-                                                  }
-                                                  props.toggleIsFollowingInProgress(false, props.id);
-
-                                              });
+                                              props.followThunkCreator(props.id);
+                                              // props.toggleIsFollowingInProgress(true, props.id);
+                                              //
+                                              // usersAPI.unfollow(props.id).then(data => {
+                                              //     if (data.resultCode === 0) {
+                                              //         props.unfollow(props.id);
+                                              //     }
+                                              //     props.toggleIsFollowingInProgress(false, props.id);
+                                              //
+                                              // });
                                           }}>Unfollow</button> :
                     <button disabled={props.followingInProgress.some(id => id === props.id)}
                             onClick={() => {
-                                props.toggleIsFollowingInProgress(true, props.id);
-                                usersAPI.follow(props.id).then(data => {
-                                    if (data.resultCode === 0) {
-                                        props.follow(props.id)
-                                    }
-                                    props.toggleIsFollowingInProgress(false, props.id);
-
-                                })
+                                props.unfollowThunkCreator(props.id);
+                                // props.toggleIsFollowingInProgress(true, props.id);
+                                // usersAPI.follow(props.id).then(data => {
+                                //     if (data.resultCode === 0) {
+                                //         props.follow(props.id)
+                                //     }
+                                //     props.toggleIsFollowingInProgress(false, props.id);
+                                //
+                                // })
                             }}>Follow</button>}
 
 

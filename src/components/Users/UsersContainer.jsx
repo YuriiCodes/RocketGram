@@ -1,12 +1,12 @@
 import {connect} from "react-redux";
 import UsersAPIComponent from "./UsersAPIComponent/UsersAPIComponent";
 import {
-    follow,
+    follow, followThunkCreator, getUsersThunkCreator,
     setCurrentPage, setLastPaginationElement,
     setPaginationArray,
     setTotalUsersCount,
     setUsers, toggleIsFetching, toggleIsFollowingInProgress,
-    unfollow
+    unfollow, unfollowThunkCreator
 } from "../../data/usersReducer";
 
 
@@ -32,5 +32,9 @@ export default connect(mapStateToProps, {
     setCurrentPaginationArray: setPaginationArray,
     setLastPaginationElement,
     toggleIsFetchig: toggleIsFetching,
-    toggleIsFollowingInProgress
+    toggleIsFollowingInProgress,
+    getUsers: getUsersThunkCreator,
+    followThunkCreator,
+    unfollowThunkCreator
+
 })(UsersAPIComponent);

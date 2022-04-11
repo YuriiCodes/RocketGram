@@ -1,6 +1,7 @@
 import classes from "./Users.module.css";
 import User from "./User/User";
 import React from "react";
+import {followThunkCreator, unfollowThunkCreator} from "../../../../data/usersReducer";
 
 function Users(props) {
     let amountOfPages = Math.ceil(props.totalUsersCount / props.usersPerPage);
@@ -26,6 +27,8 @@ function Users(props) {
                                            unfollow={props.unfollow} city="Kyiv" country="Ukraine"
                                            toggleIsFollowingInProgress={props.toggleIsFollowingInProgress}
                                            followingInProgress={props.followingInProgress}
+                                           followThunkCreator={props.followThunkCreator}
+                                           unfollowThunkCreator={props.unfollowThunkCreator}
                 />)
             }
         </div>
