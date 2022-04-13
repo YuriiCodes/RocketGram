@@ -1,16 +1,12 @@
-
 import Profile from "./Profile";
 import React from "react";
-import axios from "axios";
 import {connect} from "react-redux";
 import {getUserProfileThunkCreator, setUserProfile} from "../../data/profileReducer";
 import {
-    Navigate,
     useLocation,
     useNavigate,
     useParams,
 } from "react-router-dom";
-import usersAPI from "../../api/api";
 import {WithAuthRedirect} from "../../hoc/WithAuthRedirect";
 
 // wrapper to use react router's v6 hooks in class component(to use HOC pattern, like in router v5)
