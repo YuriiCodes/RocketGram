@@ -55,4 +55,6 @@ let mapStateToProps = (state) => ({
     profile: state.profilePage.profile,
     isAuth: state.auth.isAuth
 });
-export default connect(mapStateToProps, {setUserProfile, getUserProfile: getUserProfileThunkCreator})(withRouter(ProfileContainer));
+
+let WithRouterProfileContainer = withRouter(ProfileContainer);
+export default connect(mapStateToProps, {setUserProfile, getUserProfile: getUserProfileThunkCreator})(WithRouterProfileContainer);
