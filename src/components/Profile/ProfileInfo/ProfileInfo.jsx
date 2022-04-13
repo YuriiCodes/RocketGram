@@ -1,5 +1,6 @@
 import classes from "./ProfileInfo.module.css"
 import Preloader from "../../Common/Preloader/Preloader";
+import StatusBar from "./StatusBar/StatusBar";
 
 function ProfileInfo(props) {
     if(!props.profile) {
@@ -18,6 +19,8 @@ function ProfileInfo(props) {
                 <h2>{props.profile.aboutMe}</h2>
                 {props.profile.lookingForAJob ? <h3>Looking for a job</h3> : <h3>Not looking for a job</h3>}
                 <h4>{props.profile.lookingForAJobDescription}</h4>
+
+                <StatusBar />
 
             </div>
         </>

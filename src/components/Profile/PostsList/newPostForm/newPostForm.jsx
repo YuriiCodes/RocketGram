@@ -1,6 +1,5 @@
 import classes from "./newPostForm.module.css";
 import {useRef} from "react";
-import {addPostActionCreator, postChangeActionCreator} from "../../../../data/profileReducer";
 
 function NewPostForm(props) {
     const newPostInput = useRef(null);
