@@ -1,22 +1,14 @@
 import React, {useEffect} from "react";
-import axios from "axios";
 import Users from "./UsersPresentationalComponent/Users";
 import Preloader from "../../Common/Preloader/Preloader";
 import usersAPI from "../../../api/api";
-import {
-    followThunkCreator,
-    getUsersThunkCreator,
-    toggleIsFollowingInProgress,
-    unfollowThunkCreator
-} from "../../../data/usersReducer";
-import {Navigate} from "react-router-dom";
+import {WithAuthRedirect} from "../../../hoc/WithAuthRedirect";
 
 
 class UsersAPIComponent extends React.Component {
     componentDidMount() {
         this.props.getUsers(this.props.currentPage, this.props.usersPerPage, this.props.totalUsersCount);
-        // this.getUsers(this.props.currentPage);
-        // this.props.toggleIsFetchig(true);
+
     }
 
     getUsers = (pageNumber) => {
@@ -56,14 +48,12 @@ class UsersAPIComponent extends React.Component {
         if (pageNumber > 0 && pageNumber < amountOfPages) {
             if (pageNumber + 1 === amountOfPages) {
                 this.props.setCurrentPaginationArray([pageNumber - 1, pageNumber]);
-                // this.getUsers(pageNumber);
                 this.props.getUsers(pageNumber, this.props.usersPerPage, this.props.totalUsersCount);
 
                 return;
             }
             this.props.setCurrentPaginationArray([pageNumber - 1, pageNumber, pageNumber + 1]);
             this.props.getUsers(pageNumber, this.props.usersPerPage, this.props.totalUsersCount);
-            // this.getUsers(pageNumber);
         }
     }
     onPageChange = (pageNumber, amountOfPages) => {
@@ -75,9 +65,7 @@ class UsersAPIComponent extends React.Component {
 
 
     render() {
-        if(!this.props.isAuth) {
-            return <Navigate to={'/login'}/>
-        }
+
         return (
             <>
                 {this.props.isFetching ? <Preloader /> : null}
@@ -101,4 +89,5 @@ class UsersAPIComponent extends React.Component {
     }
 }
 
-export default UsersAPIComponent;
+const UsertsAPIComponentWithRedirect = WithAuthRedirect(UsersAPIComponent);
+export default UsertsAPIComponentWithRedirect;
