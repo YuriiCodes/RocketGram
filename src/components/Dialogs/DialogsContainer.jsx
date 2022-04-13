@@ -3,6 +3,7 @@ import Dialogs from "./Dialogs";
 import {messageChangeActionCreator, sendMessageActionCreator} from "../../data/dialogsReducer";
 import {connect} from "react-redux";
 import {WithAuthRedirect} from "../../hoc/WithAuthRedirect";
+import {compose} from "redux";
 
 // mapStateToProps and mapDispatchToProps are functions that return objects that are later passed via props.
 
@@ -24,8 +25,11 @@ let mapDispatchToProps = (dispatch) => ({
         dispatch(messageChangeActionCreator(newMessage));
     }
 })
-// Double parentheses meaning that connect() returns a function, which is then executed immediately.
+// Double parentheses meaning that compose() returns a function, which is then executed immediately.
+
+
 // connect function returns new container component.
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
-const DialogsContainerWithRedirect = WithAuthRedirect(DialogsContainer);
-export default DialogsContainerWithRedirect;
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    WithAuthRedirect
+)(Dialogs);

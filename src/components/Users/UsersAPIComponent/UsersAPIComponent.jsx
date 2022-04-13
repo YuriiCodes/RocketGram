@@ -89,5 +89,5 @@ class UsersAPIComponent extends React.Component {
     }
 }
 
-const UsertsAPIComponentWithRedirect = WithAuthRedirect(UsersAPIComponent);
-export default UsertsAPIComponentWithRedirect;
+const UsersAPIComponentWithRedirect = WithAuthRedirect(UsersAPIComponent);
+export default UsersAPIComponentWithRedirect;
