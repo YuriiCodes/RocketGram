@@ -37,7 +37,6 @@ const StatusBar = (props) => {
                 </form>
                 : <h5 onDoubleClick={toggleEditMode}> {status || "Please edit your status"} </h5>
             }
-
         </div>
     )
 }
