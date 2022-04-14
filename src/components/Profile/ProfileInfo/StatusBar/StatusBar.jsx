@@ -23,19 +23,18 @@ const StatusBar = (props) => {
             {editMode
                 // <input className={classes.input} ref={ref} onDoubleClick={toggleEditMode} autoFocus={true} onChange={handleStatusChange} value={status || " "} />
                 ?
-                <form className={classes.form} onSubmit={handleSubmit}>
-                    <label htmlFor="postInput">Add new post</label>
+                <form className={classes.form} onSubmit={handleSubmit} onDoubleClick={handleSubmit} >
                     <input id="postInput" ref={newPostInput}
                            type="text"
                            value={status}
                            onChange={handleStatusChange}
                            className={classes.input}
                            name="postInput"/>
-                    <button  className={NewPostForm.submit}>
+                    <button  className={classes.submit}>
                         Send
                     </button>
                 </form>
-                : <h5 onDoubleClick={toggleEditMode}> {status || "Please edit your status"} </h5>
+                : <p onDoubleClick={toggleEditMode}><b>Your status: </b> {status || "Please edit your status"} </p>
             }
         </div>
     )
