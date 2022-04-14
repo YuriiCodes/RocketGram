@@ -5,13 +5,16 @@ import NewPostForm from "../../PostsList/newPostForm/newPostForm";
 const StatusBar = (props) => {
     const [editMode, setEditMode] = useState(false);
     const [status, setStatus] = useState(props.status);
-    const ref = useRef(null);
     const toggleEditMode = () => {
         setEditMode(!editMode);
     };
     const handleStatusChange = (e) => {
-        props.setStatus(e.currentTarget.value);
         setStatus(e.target.value);
+    }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        props.setStatus(status);
+        setEditMode(false);
     }
     const newPostInput = useRef(null);
     window.setStatus = props.setStatus;
@@ -20,11 +23,15 @@ const StatusBar = (props) => {
             {editMode
                 // <input className={classes.input} ref={ref} onDoubleClick={toggleEditMode} autoFocus={true} onChange={handleStatusChange} value={status || " "} />
                 ?
-                <form className={classes.form} onSubmit={() => {}}>
+                <form className={classes.form} onSubmit={handleSubmit}>
                     <label htmlFor="postInput">Add new post</label>
-                    <input id="postInput" ref={newPostInput} type="text" onChange={() => {}} className={classes.input}
-                           name="postInput" value={props.newPostText}/>
-                    <button onClick={() => {}} className={NewPostForm.submit}>
+                    <input id="postInput" ref={newPostInput}
+                           type="text"
+                           value={status}
+                           onChange={handleStatusChange}
+                           className={classes.input}
+                           name="postInput"/>
+                    <button  className={NewPostForm.submit}>
                         Send
                     </button>
                 </form>
