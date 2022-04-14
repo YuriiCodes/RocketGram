@@ -3,8 +3,8 @@ import Preloader from "../../Common/Preloader/Preloader";
 import StatusBar from "./StatusBar/StatusBar";
 
 function ProfileInfo(props) {
-    if(!props.profile) {
-        return <Preloader />
+    if (!props.profile) {
+        return <Preloader/>
     }
     return (
         <>
@@ -20,7 +20,10 @@ function ProfileInfo(props) {
                 {props.profile.lookingForAJob ? <h3>Looking for a job</h3> : <h3>Not looking for a job</h3>}
                 <h4>{props.profile.lookingForAJobDescription}</h4>
 
-                <StatusBar />
+                <StatusBar
+                    status={props.status}
+                    setStatus={props.setStatus}
+                />
 
             </div>
         </>

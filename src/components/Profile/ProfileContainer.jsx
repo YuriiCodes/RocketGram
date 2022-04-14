@@ -1,7 +1,12 @@
 import Profile from "./Profile";
 import React from "react";
 import {connect} from "react-redux";
-import {getUserProfileThunkCreator, setUserProfile} from "../../data/profileReducer";
+import {
+    getStatusThunkCreator,
+    getUserProfileThunkCreator,
+    setStatusThunkCreator,
+    setUserProfile
+} from "../../data/profileReducer";
 import {
     useLocation,
     useNavigate,
@@ -29,8 +34,8 @@ function withRouter(Component) {
 
 class ProfileContainer extends React.Component {
     componentDidMount() {
+        this.props.getStatus(23171);
         let profileId = this.props.router.params.profileId;
-
         if (profileId === undefined) {
             profileId = 23171;
         }
@@ -39,7 +44,7 @@ class ProfileContainer extends React.Component {
 
     render() {
         return (
-            <Profile {...this.props} profile={this.props.profile}/>
+            <Profile {...this.props} profile={this.props.profile} status={this.props.status} setStatus={this.props.setStatus}/>
         )
     }
 
@@ -47,11 +52,12 @@ class ProfileContainer extends React.Component {
 
 let mapStateToProps = (state) => ({
     profile: state.profilePage.profile,
+    status: state.profilePage.status,
 });
 
 export default compose(
     withRouter,
     WithAuthRedirect,
-    connect(mapStateToProps, {setUserProfile, getUserProfile: getUserProfileThunkCreator})
+    connect(mapStateToProps, {setUserProfile, getUserProfile: getUserProfileThunkCreator, getStatus: getStatusThunkCreator,setStatus: setStatusThunkCreator})
 )
 (ProfileContainer);
