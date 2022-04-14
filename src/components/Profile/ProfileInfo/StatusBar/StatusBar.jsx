@@ -10,8 +10,8 @@ const StatusBar = (props) => {
     return (
         <div>
             {editMode
-                ?<input className={classes.input} onDoubleClick={toggleEditMode} autoFocus={true} onChange={e => setStatus(e.target.value)} value={status} />
-                : <h5 onDoubleClick={toggleEditMode}> {status} </h5>
+                ?<input className={classes.input} onDoubleClick={toggleEditMode} autoFocus={true} onChange={e => setStatus(e.target.value)} value={status || " "} />
+                : <h5 onDoubleClick={toggleEditMode}> {status || "Please edit your status"} </h5>
             }
 
         </div>
