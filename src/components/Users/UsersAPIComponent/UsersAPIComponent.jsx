@@ -6,21 +6,11 @@ import {WithAuthRedirect} from "../../../hoc/WithAuthRedirect";
 
 
 class UsersAPIComponent extends React.Component {
+
     componentDidMount() {
         this.props.getUsers(this.props.currentPage, this.props.usersPerPage, this.props.totalUsersCount);
-
     }
 
-    getUsers = (pageNumber) => {
-            usersAPI.getUsers(pageNumber, this.props.usersPerPage).then(data => {
-            this.props.toggleIsFetchig(false);
-            this.props.setUsers(data.items);
-            this.props.setTotalUsersCount(data.totalCount);
-            let amountOfPages = Math.ceil(this.props.totalUsersCount / this.props.usersPerPage);
-            this.props.setLastPaginationElement(amountOfPages - 1);
-            console.log(data);
-        })
-    }
     setDefaultUsers = () => {
         this.props.toggleIsFetchig(false);
         this.props.setUsers([

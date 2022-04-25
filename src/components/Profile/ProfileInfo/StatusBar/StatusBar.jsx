@@ -1,10 +1,11 @@
-import {useRef, useState} from "react";
+import {useRef, useState, useEffect} from "react";
 import classes from "./StatusBar.module.css";
-import NewPostForm from "../../PostsList/newPostForm/newPostForm";
 
 const StatusBar = (props) => {
     const [editMode, setEditMode] = useState(false);
     const [status, setStatus] = useState(props.status);
+    const mountedRef = useRef(false);
+   
     const toggleEditMode = () => {
         setEditMode(!editMode);
     };
