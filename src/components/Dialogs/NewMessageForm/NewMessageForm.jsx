@@ -4,15 +4,6 @@ import * as Yup from 'yup';
 
 function NewMessageForm(props) {
 
-    let onSendMessage = (e) => {
-        e.preventDefault();
-        props.sendMessage();
-    }
-
-    let onMessageChange = (e) => {
-        props.updateMessage(e.target.value);
-
-    }
 
     const formik = useFormik({
         initialValues: {
