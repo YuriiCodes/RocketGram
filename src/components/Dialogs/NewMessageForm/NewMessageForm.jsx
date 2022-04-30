@@ -17,14 +17,17 @@ function NewMessageForm(props) {
         }),
         onSubmit: values => {
             props.sendMessage();
+            formik.resetForm();
         }
     });
+
+    const hasError = formik.touched.message && formik.errors.message;
     return (
         <form className={classes.form} onSubmit={formik.handleSubmit}>
             <input
                 type="text"
                 value={props.newMessageText}
-                className={classes.input}
+                className={classes.input + " " + (hasError ? classes.errorInput : "")}
 
                 name={"message"}
                 id={"message"}
@@ -38,7 +41,7 @@ function NewMessageForm(props) {
             <button type={"submit"} className={classes.submit}>
                 Send
             </button>
-            {formik.touched.message && formik.errors.message ? (
+            {hasError ? (
                 <div className={classes.error}>{formik.errors.message}</div>
             ) : null}
         </form>
