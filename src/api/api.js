@@ -13,14 +13,14 @@ const instance = axios.create({
 const usersAPI = {
     getUsers(pageNumber, usersPerPage) {
         return instance.get(`users?page=${pageNumber}&count=${usersPerPage}`)
-            .then(res => res.data)
+            .then(res => res.data);
     },
     unfollow(id) {
-        return instance.delete(`follow/${id}`).then(res => res.data)
+        return instance.delete(`follow/${id}`).then(res => res.data);
     },
-   follow(id) {
-      return instance.post(`follow/${id}`).then(res => res.data)
-   },
+    follow(id) {
+        return instance.post(`follow/${id}`).then(res => res.data);
+    },
 
     getProfileInfo(profileId) {
         console.warn("Obsolete method. Please use profileAPI object");
@@ -29,23 +29,28 @@ const usersAPI = {
 }
 export const profileAPI = {
     getProfileInfo(profileId) {
-        return instance.get(`profile/${profileId}`)
+        return instance.get(`profile/${profileId}`);
     },
     getProfileStatus(profileId) {
-        return instance.get(`profile/status/${profileId}`)
+        return instance.get(`profile/status/${profileId}`);
     },
     updateProfileStatus(status) {
-        return instance.put(`profile/status`, {status: status})
+        return instance.put(`profile/status`, {status: status});
     },
 };
 
 export const authAPI = {
-    me(){
+    me() {
         return instance.get(`auth/me`);
+    },
+    login(email, password, rememberMe = false) {
+        return instance.post(`auth/login`, {email, password, rememberMe});
+    },
+    logout() {
+        return instance.delete('auth/login');
     }
 
 }
-
 
 
 export default usersAPI;

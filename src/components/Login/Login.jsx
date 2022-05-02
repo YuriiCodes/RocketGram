@@ -2,6 +2,8 @@ import React from 'react';
 import classes from './Login.module.css';
 import {useFormik} from 'formik';
 import * as Yup from 'yup';
+import {connect} from "react-redux";
+import {loginThunkCreator, logoutThunkCreator} from "../../data/authReducer";
 
 
 const LoginForm = () => {
@@ -92,9 +94,14 @@ const LoginForm = () => {
 const Login = (props) => {
     return (
         <div>
-            <LoginForm/>
+            <LoginForm login={props.loginThunkCreator} logout={props.logoutThunkCreator}/>
         </div>
     )
 };
 
-export default Login;
+
+let mapStateToProps = (state) => {
+    return {
+    }
+};
+export default connect(mapStateToProps, {loginThunkCreator, logoutThunkCreator})(Login);
