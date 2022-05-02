@@ -29,6 +29,12 @@ input:focus{
 button:disabled{
     opacity: 30%;
 }
+
+.errorTxt{
+    color: red;
+    font-size: .8em;
+    margin-top: .5em;
+}
 .submit{
     width: 10%;
     height: 2.5em;

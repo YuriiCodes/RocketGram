@@ -49,11 +49,13 @@ export const authThunkCreator = () => {
     }
 }
 
-export const loginThunkCreator = (email, password, rememberMe) => {
+export const loginThunkCreator = (email, password, rememberMe, setStatus) => {
     return (dispatch) => {
         authAPI.login(email, password, rememberMe).then(res => {
             if (res.data.resultCode === 0) {
                 dispatch(authThunkCreator());
+            } else {
+                setStatus({error: res.data.messages});
             }
         })
     }

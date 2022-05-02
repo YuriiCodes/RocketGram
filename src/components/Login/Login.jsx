@@ -29,14 +29,21 @@ const LoginForm = (props) => {
             rememberMe: false
         },
         validationSchema: loginFormValidationSchema,
-        onSubmit: values => {
-            props.login(values.login, values.password, values.rememberMe);
+        onSubmit: (values, submitProps) => {
+            props.login(values.login, values.password, values.rememberMe, submitProps.setStatus);
             formik.resetForm();
             alert(JSON.stringify(values, null, 2));
         },
     });
     window.formik = formik;
 
+
+    // validate form, values that are used if error occurs.
+    let apiErrors
+    if(formik.status) {
+        console.log(formik.status.error)
+        apiErrors = formik.status.error.map((item, index) => <p key={index} className={classes.errorTxt}>{item}</p>)
+    }
     return (
         <div>
             <form onSubmit={formik.handleSubmit}>
@@ -90,6 +97,9 @@ const LoginForm = (props) => {
                 </div>
                 <div>
                     <button className={classes.submit} type={"submit"} disabled={!(formik.isValid && formik.dirty)}>Login</button>
+                </div>
+                <div>
+                    {apiErrors}
                 </div>
             </form>
         </div>
