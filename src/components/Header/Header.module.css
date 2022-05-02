@@ -21,8 +21,17 @@
     color: rgba(235, 235, 235, .7);
 }
 .loginInfo{
-
-
+    display: flex;
+    align-items: center;
+}
+.loginInfo .logoutBtn{
+    background-color: #1e1e1e;
+    color: #ebebeb;
+    border: none;
+    padding: .5em;
+    cursor: pointer;
+    margin-left: .2em;
+    text-decoration: none;
 }
 .personal{
 

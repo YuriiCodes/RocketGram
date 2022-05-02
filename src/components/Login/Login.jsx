@@ -4,6 +4,8 @@ import {useFormik} from 'formik';
 import * as Yup from 'yup';
 import {connect} from "react-redux";
 import {loginThunkCreator, logoutThunkCreator} from "../../data/authReducer";
+import {Navigate} from "react-router-dom";
+
 
 
 const LoginForm = (props) => {
@@ -34,6 +36,7 @@ const LoginForm = (props) => {
         },
     });
     window.formik = formik;
+
     return (
         <div>
             <form onSubmit={formik.handleSubmit}>
@@ -94,6 +97,9 @@ const LoginForm = (props) => {
 }
 
 const Login = (props) => {
+    if(props.isAuth) {
+        return <Navigate to={"/profile"}/>
+    }
     return (
         <div>
             <LoginForm login={props.loginThunkCreator} logout={props.logoutThunkCreator}/>
@@ -104,6 +110,7 @@ const Login = (props) => {
 
 let mapStateToProps = (state) => {
     return {
+        isAuth: state.auth.isAuth
     }
 };
 export default connect(mapStateToProps, {loginThunkCreator, logoutThunkCreator})(Login);

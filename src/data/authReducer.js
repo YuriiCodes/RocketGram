@@ -17,7 +17,7 @@ const authReducer = (state = initialState, action) => {
                 id: action.data.id,
                 login: action.data.login,
                 email: action.data.email,
-                isAuth: true
+                isAuth: action.data.isAuth
             }
         }
 
