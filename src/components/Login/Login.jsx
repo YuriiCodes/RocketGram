@@ -6,7 +6,7 @@ import {connect} from "react-redux";
 import {loginThunkCreator, logoutThunkCreator} from "../../data/authReducer";
 
 
-const LoginForm = () => {
+const LoginForm = (props) => {
     const rememberMe = "rememberMe";
     const login = "login";
     const password = "password";
@@ -28,6 +28,8 @@ const LoginForm = () => {
         },
         validationSchema: loginFormValidationSchema,
         onSubmit: values => {
+            props.login(values.login, values.password, values.rememberMe);
+            formik.resetForm();
             alert(JSON.stringify(values, null, 2));
         },
     });
