@@ -11,7 +11,7 @@ const LoginForm = () => {
     const loginFormValidationSchema = Yup.object({
         // fields value must be the same we entered in formik's initialValues
         login: Yup.string()
-            .max(15, 'Must be 15 characters or less')
+            .max(50, 'Must be 50 characters or less')
             .required('Required'),
         password: Yup.string()
             .max(20, 'Must be 20 characters or less')

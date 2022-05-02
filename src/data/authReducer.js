@@ -40,7 +40,7 @@ export const setAuthData = (id, login, email) => ({
 
 export const authThunkCreator = () => {
     return (dispatch) => {
-        authAPI.auth().then(res => {
+        authAPI.me().then(res => {
             if( res.data.resultCode === 0 ) {
                 dispatch(setAuthData(res.data.data.id,res.data.data.login, res.data.data.email));
             }
