@@ -1,22 +1,15 @@
 import Header from "./Header";
 import React from "react";
-import {authThunkCreator, logoutThunkCreator, setAuthData} from "../../data/authReducer";
+import {logoutThunkCreator, setAuthData} from "../../data/authReducer";
 import {connect} from "react-redux";
 
-class HeaderContainer extends React.Component {
-    componentDidMount() {
-        this.props.auth();
-    }
-
-    render() {
-        console.log(this.props);
-        return (
-            <Header isAuth={this.props.isAuth} id={this.props.id}
-                    login={this.props.login} email={this.props.email}
-                    logout={this.props.logout}
-            />
-        )
-    }
+function HeaderContainer(props) {
+    return (
+        <Header isAuth={props.isAuth} id={props.id}
+                login={props.login} email={props.email}
+                logout={props.logout}
+        />
+    )
 }
 
 let mapStateToProps = (state) => ({
@@ -28,5 +21,5 @@ let mapStateToProps = (state) => ({
 
 
 export default connect(mapStateToProps, {
-    setAuthData, auth: authThunkCreator, logout: logoutThunkCreator
+    setAuthData, logout: logoutThunkCreator
 })(HeaderContainer);
