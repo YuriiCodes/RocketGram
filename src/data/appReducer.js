@@ -1,5 +1,5 @@
 import  {authAPI} from "../api/api";
-import {setAuthData} from "./authReducer";
+import {authThunkCreator, setAuthData} from "./authReducer";
 
 const SET_INITIALIZED = 'SET_INITIALIZED';
 
@@ -26,15 +26,6 @@ export default appReducer;
 
 export const setInitialized = () => ({type: SET_INITIALIZED});
 
-export const authThunkCreator = () => {
-    return (dispatch) => {
-        authAPI.me().then(res => {
-            if (res.data.resultCode === 0) {
-                dispatch(setAuthData(res.data.data.id, res.data.data.login, res.data.data.email, true));
-            }
-        })
-    }
-}
 
 
 // initialize thunk creator :
