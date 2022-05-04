@@ -1,5 +1,4 @@
-import  {authAPI} from "../api/api";
-import {authThunkCreator, setAuthData} from "./authReducer";
+import {authThunkCreator} from "./authReducer";
 
 const SET_INITIALIZED = 'SET_INITIALIZED';
 

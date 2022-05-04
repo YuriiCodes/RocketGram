@@ -8,20 +8,26 @@ import {
     setUsers, toggleIsFetching, toggleIsFollowingInProgress,
     unfollow, unfollowThunkCreator
 } from "../../data/usersReducer";
+import {
+    getCurrentPage,
+    getCurrentPaginationArray, getFollowingInProgress, getIsAuth, getIsFetching, getLastPaginationElement,
+    getTotalUsersCount,
+    getUsers,
+    getUsersPerPage
+} from "../../data/usersSelectors";
 
 
 let mapStateToProps = (state) => {
     return {
-        users: state.usersPage.users,
-        currentPage: state.usersPage.currentPage,
-        usersPerPage: state.usersPage.usersPerPage,
-        totalUsersCount: state.usersPage.totalUsersCount,
-        currentPaginationArray: state.usersPage.currentPaginationArray,
-        lastPaginationElement: state.usersPage.lastPaginationElement,
-        isFetching: state.usersPage.isFetching,
-        followingInProgress: state.usersPage.followingInProgress,
-        isAuth: state.auth.isAuth
-
+        users: getUsers(state),
+        currentPage: getCurrentPage(state),
+        usersPerPage: getUsersPerPage(state),
+        totalUsersCount: getTotalUsersCount(state),
+        currentPaginationArray: getCurrentPaginationArray(state),
+        lastPaginationElement: getLastPaginationElement(state),
+        isFetching: getIsFetching(state),
+        followingInProgress: getFollowingInProgress(state),
+        isAuth: getIsAuth(state)
     }
 }
 export default connect(mapStateToProps, {

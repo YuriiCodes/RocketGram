@@ -1,7 +1,6 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import './App.css';
 import Nav from "./components/Nav/Nav";
-import Profile from "./components/Profile/Profile";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
@@ -18,17 +17,14 @@ import Preloader from "./components/Common/Preloader/Preloader";
 
 
 function App(props) {
-    debugger;
-    useEffect(() => {
+    useEffect((props) => {
         // props.auth();
         props.initialize();
     }, [])
 
-    debugger
     if(!props.initialized) {
         return <Preloader/>
     }
-    debugger
     return (
         <div>
             <BrowserRouter>
