@@ -17,7 +17,8 @@ import Preloader from "./components/Common/Preloader/Preloader";
 
 
 function App(props) {
-    useEffect((props) => {
+    debugger;
+    useEffect(() => {
         // props.auth();
         props.initialize();
     }, [])
